@@ -1,8 +1,8 @@
-# Brightcove API example for Dynamic Ingest
+# Brightcove API using CSharp
 
-This project shows how the Brightcove APIs can be used with C# to ingest local videos to Video Cloud.
+**BrightcoveAPI**: C# API wrapper for Brightcove APIs
 
-Please note that this will work from desktop environments (tested), but will probably not work if used in ASP.NET pages due to CORS. If you run into this problem I believe the only way to solve this is to use the PHP proxy provided by Brightcove in all their CMS API example pages.
+**BrightcoveDI**: example project showing how to use the wrapper to ingest local videos to Video Cloud
 
 # Support
 
