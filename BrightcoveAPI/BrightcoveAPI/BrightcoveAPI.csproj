@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BrightcoveAPI</RootNamespace>
+    <AssemblyName>BrightcoveAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Json" />
+    <Reference Include="AWSSDK.Core">
+      <HintPath>..\packages\AWSSDK.Core.3.3.19\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3">
+      <HintPath>..\packages\AWSSDK.S3.3.3.14\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OAuthToken.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DynamicIngest.cs" />
+    <Compile Include="APIAuthentication.cs" />
+    <Compile Include="SourceFileUpload.cs" />
+    <Compile Include="CMS.cs" />
+    <Compile Include="Playback.cs" />
+    <Compile Include="SSAI.cs" />
+    <Compile Include="Analytics.cs" />
+    <Compile Include="PlayerManagement.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\RestAPICall.cs" />
+    <Compile Include="CMS_Playlist.cs" />
+    <Compile Include="CMS_Video.cs" />
+    <Compile Include="CMS_Notifications.cs" />
+    <Compile Include="CMS_Folders.cs" />
+    <Compile Include="CMS_Assets.cs" />
+    <Compile Include="CMS_MediaSharing.cs" />
+    <Compile Include="Audience.cs" />
+    <Compile Include="Live_Jobs.cs" />
+    <Compile Include="Live.cs" />
+    <Compile Include="Live_Clips.cs" />
+    <Compile Include="Live_SSAI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

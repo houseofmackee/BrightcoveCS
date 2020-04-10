@@ -1,0 +1,125 @@
+﻿/*
+ * Copyright (c) 2020 MacKenzie Glanzer @HouseOfMackee
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished
+ * to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+using System;
+namespace BrightcoveAPI
+{
+    public abstract class Base
+    {
+        [Serializable()]
+        public class BrightcoveAPIException : Exception
+        {
+            public BrightcoveAPIException() : base() { }
+            public BrightcoveAPIException(string message) : base(message) { }
+            public BrightcoveAPIException(string message, System.Exception inner) : base(message, inner) { }
+
+            // A constructor is needed for serialization when an
+            // exception propagates from a remoting server to the client. 
+            protected BrightcoveAPIException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+            { }
+        }
+
+        public abstract string API_VERSION { get; }
+        public abstract string BaseURL { get; }
+
+        private string myStrAccountID = string.Empty;
+        private string myStrPolicyKey = string.Empty;
+        private OAuthToken myOAuthToken = null;
+
+        protected OAuthToken Token
+        {
+            get { return myOAuthToken; }
+            set
+            {
+                if (value is OAuthToken)
+                {
+                    myOAuthToken = value;
+                }
+                else
+                {
+                    throw new BrightcoveAPIException(Helper.strOAuthTokenNotValid);
+                }
+            }
+        }
+
+        public string AccountID
+        {
+            get { return myStrAccountID; }
+            protected set
+            {
+                if (Helper.IsDigitsOnly(value))
+                {
+                    myStrAccountID = value;
+                }
+                else
+                {
+                    throw new BrightcoveAPIException(Helper.strAccountIDNotValid);
+                }
+            }
+        }
+
+        public string PolicyKey
+        {
+            get { return myStrPolicyKey; }
+            protected set
+            {
+                if (value.StartsWith("BCpk", StringComparison.InvariantCulture))
+                {
+                    myStrPolicyKey = value;
+                }
+                else
+                {
+                    throw new BrightcoveAPIException(Helper.strPolicyKeyNotValid);
+                }
+            }
+        }
+
+
+        protected Base(OAuthToken oauthToken, string strAccountID)
+        {
+            AccountID = strAccountID;
+            Token = oauthToken;
+        }
+
+        protected Base(string strAccountID)
+        {
+            AccountID = strAccountID;
+        }
+
+        protected Base(OAuthToken oauthToken)
+        {
+            Token = oauthToken;
+        }
+
+        protected Base(string strAccountID, string strPolicyKey)
+        {
+            AccountID = strAccountID;
+            PolicyKey = strPolicyKey;
+        }
+
+        protected Base(OAuthToken oauthToken, string strAccountID, string strPolicyKey)
+        {
+            AccountID = strAccountID;
+            PolicyKey = strPolicyKey;
+            Token = oauthToken;
+        }
+    }
+}

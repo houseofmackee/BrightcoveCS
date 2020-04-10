@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightcoveAPI", "BrightcoveAPI\BrightcoveAPI.csproj", "{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightcoveAPITest", "BrightcoveAPITest\BrightcoveAPITest.csproj", "{BD431E1A-68B9-4DBA-91A6-D099E3150F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightcoveDITest", "BrightcoveDITest\BrightcoveDITest.csproj", "{C9883F3F-EC9C-4192-8418-902377C986BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}.Debug|x86.Build.0 = Debug|Any CPU
+		{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}.Release|x86.ActiveCfg = Release|Any CPU
+		{F18F4E17-A20F-4A83-9D2C-0195EAE52FFF}.Release|x86.Build.0 = Release|Any CPU
+		{BD431E1A-68B9-4DBA-91A6-D099E3150F49}.Debug|x86.ActiveCfg = Debug|x86
+		{BD431E1A-68B9-4DBA-91A6-D099E3150F49}.Debug|x86.Build.0 = Debug|x86
+		{BD431E1A-68B9-4DBA-91A6-D099E3150F49}.Release|x86.ActiveCfg = Release|x86
+		{BD431E1A-68B9-4DBA-91A6-D099E3150F49}.Release|x86.Build.0 = Release|x86
+		{C9883F3F-EC9C-4192-8418-902377C986BB}.Debug|x86.ActiveCfg = Debug|x86
+		{C9883F3F-EC9C-4192-8418-902377C986BB}.Debug|x86.Build.0 = Debug|x86
+		{C9883F3F-EC9C-4192-8418-902377C986BB}.Release|x86.ActiveCfg = Release|x86
+		{C9883F3F-EC9C-4192-8418-902377C986BB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
